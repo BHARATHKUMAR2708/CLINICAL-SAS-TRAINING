@@ -1,0 +1,98 @@
+# CLINICAL-SAS-TRAINING
+This respiratory contains my clinical SAS programming codes, including Base SAS, Advance SAS, and SQL queries for clinical data management.
+								/* MERGE */
+								
+data dm;
+input SUBJID $ AGE SEX $ TRT $;
+datalines;
+101 23 M A
+102 45 F B
+104 29 F B
+105 40 M A
+106 38 F B
+108 27 F B
+109 31 M A
+110 36 F B
+;
+run;
+
+
+data lab;
+input SUBJID $ HGB WBC;
+datalines;
+101 13.5 7000
+102 12.8 6500
+103 14.2 7200
+104 11.9 6000
+105 13.8 7100
+106 12.5 6800
+109 13.9 7050
+110 12.4 6400
+;
+run;
+
+
+proc sort data=dm;
+by SUBJID;
+
+proc sort data=lab;
+by SUBJID;
+
+						/* FULL JOIN */
+
+data full_join;
+merge dm
+	  lab;
+by SUBJID;
+run;
+	  
+title "FULL JOIN OUTPUT";
+
+proc print data=full_join;
+run;
+
+
+
+						/* LEFT JOIN */
+
+data left_join;
+merge	dm (in=a)
+		lab(in=b);
+by SUBJID;
+if a;
+run;
+
+title "LEFT JOIN OUTPUT";
+
+proc print data=left_join;
+run;
+
+						/* RIGHT JOIN */
+
+data right_join;
+merge	dm(in=a)
+		lab(in=b);
+by SUBJID;
+if b;
+run;
+
+title "RIGHT JOIN OUTPUT";
+
+proc print data=right_join;
+run;
+
+
+						/* INNER JOIN */
+
+
+DATA inner_join;
+merge	dm(in=a)
+		lab(in=b);
+by SUBJID;
+if a and b;
+RUN;
+
+title "INNER JOIN OUTPUT";
+
+PROC print data=inner_join;
+run;
