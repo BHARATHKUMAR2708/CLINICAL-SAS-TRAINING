@@ -53,22 +53,7 @@ run;
 
 
 
-
-
-
-
-
-
-
 <img width="1366" height="702" alt="FULL JOIN" src="https://github.com/user-attachments/assets/e4d38271-5181-4720-b644-ce7a034c35ad" />
-
-
-
-
-
-
-
-
 
 
 						/* LEFT JOIN */
