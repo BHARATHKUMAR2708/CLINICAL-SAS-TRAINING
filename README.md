@@ -50,6 +50,7 @@ title "FULL JOIN OUTPUT";
 
 proc print data=full_join;
 run;
+<img width="1366" height="702" alt="FULL JOIN" src="https://github.com/user-attachments/assets/e4d38271-5181-4720-b644-ce7a034c35ad" />
 
 
 						/* LEFT JOIN */
@@ -66,6 +67,9 @@ title "LEFT JOIN OUTPUT";
 proc print data=left_join;
 run;
 
+<img width="1366" height="623" alt="LEFT JION " src="https://github.com/user-attachments/assets/4caf9227-6da9-4e47-a2ed-64cb8bd89458" />
+
+
 
 						/* RIGHT JOIN */
 
@@ -80,6 +84,8 @@ title "RIGHT JOIN OUTPUT";
 
 proc print data=right_join;
 run;
+<img width="1361" height="601" alt="RIGHT JOIN" src="https://github.com/user-attachments/assets/73c6e359-d62d-4249-9d29-1028f4d2a81d" />
+
 
 						/* INNER JOIN */
 
@@ -95,3 +101,5 @@ title "INNER JOIN OUTPUT";
 
 PROC print data=inner_join;
 run;
+<img width="1366" height="612" alt="INNER JOIN" src="https://github.com/user-attachments/assets/68183d44-e80d-4e83-aff9-d92a19b2475f" />
+
