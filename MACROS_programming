@@ -1,0 +1,56 @@
+                                /* MACROs PROGRAMMING */
+
+/* CREATING MACRO VARIABLE */
+
+%let print=sashelp.cars;
+
+proc print data=&print;
+%mend;
+
+/* CREATING MACRO*/
+
+%macro macro_practice (class=, op=, byvar=, tabvar= );
+proc sort data=&class out=&op;
+	by &byvar;
+run;
+
+proc freq data=&op;
+	table &tabvar;
+	by &byvar;
+run;
+
+proc means data=&op;
+by &byvar;
+
+%mend;
+
+
+%macro_practice (class=sashelp.shoes, op=class, byvar=Product, tabvar=Stores  );
+%macro_practice (class=sashelp.class, op=class, byvar=sex, tabvar=age);
+%macro_practice (class=sashelp.failure, op=class, byvar=process, tabvar=count);
+
+
+/* LOGICAL CONDITION */
+
+%macro macro_practice_1 (con=, class_1=, op=, byvar=, tabvar= );
+
+%if &con=s %then %do;
+	proc sort data=&class_1 out=&op;
+		by &byvar;
+	run;
+%end;
+
+%else %if &con=f %then %do;
+		proc freq data=&op; 
+			table &tabvar;
+			by &byvar;
+		run;
+%end;
+
+%else %if &con=m %then %do;
+		proc means data=&op;
+			by &byvar;
+		run;
+%end;
+%mend;
+%macro_practice_1 (con=f, class_1=sashelp.shoes, op=shoe_out, byvar=Product, tabvar=Stores);
